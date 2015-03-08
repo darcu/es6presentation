@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="md.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div id="container">
+			<div id="slide1" class="slide">
+				<h1 id="arrow-functions">Arrow functions</h1>
+				<p>Shorthand for creating functions. </p>
+
+					<p>shorter syntax:</p>
+						<pre>
+							<code class="lang-javascript">      m =&gt; m + <span class="hljs-number">3</span>;
+
+				      <span class="hljs-keyword">var</span> sum = (m1, m2) =&gt; {
+				         <span class="hljs-keyword">return</span> m1 + m2;
+				      };
+				      sum(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// will be 5</span>
+
+				      <span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+				      a.forEach(v =&gt; <span class="hljs-built_in">console</span>.log(v + <span class="hljs-number">1</span>)); <span class="hljs-comment">// will log: 2 3 4 5 6</span>
+				</code></pre>
+				<p>binded this:</p>
+				<pre><code class="lang-javascript">      <span class="hljs-keyword">var</span> sum2 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span> </span>{
+				          <span class="hljs-keyword">this</span>.a = a;
+				          <span class="hljs-keyword">this</span>.b = b;
+
+				          <span class="hljs-keyword">var</span> dd = (v =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.a + <span class="hljs-keyword">this</span>.b));
+				          dd();
+				      }
+
+				      sum2(<span class="hljs-number">3</span>, <span class="hljs-number">7</span>); <span class="hljs-comment">//  will log 10</span>
+				</code></pre>
+			</div>
+		</div>
+
+		<div id="log" style="display: none"></div>
+		<script type="application/javascript">
+			function addScript(src) {
+				var s = document.createElement('script');
+				s.src = src;
+				document.body.appendChild(s);
+			}
+			// addScript('slide.js');
+
+			function isChrome() {
+				return navigator.userAgent.indexOf('Chrome') >= 0;
+			}
+
+			function isFirefox() {
+				return navigator.userAgent.indexOf('Firefox') >= 0;
+			}
+
+			var logEl = document.getElementById('log');
+
+			var log = function(t, m) {
+				console.log(t, m);
+				logEl.innerHTML += t + ' : ' + m + '<br>';
+			};
+
+
+			// log('is Firefox', isFirefox());
+			// log('is Chrome', isChrome());
+
+			addScript('mainCommon.js');
+			if (isChrome()) {
+				addScript('mainChrome.js');
+			} else if (isFirefox()) {
+				addScript('mainFirefox.js');
+			}
+		</script>
+	</body>
+</html>
