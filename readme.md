@@ -1,26 +1,82 @@
-#Arrow functions
+class: center, middle
 
-#####Shorthand for creating functions.
+#Functii
 
-Shorter syntax:
+---
+
+### Functii
+
+Functiile permit refolosirea unei functionalitati sau bucati de cod.
+Functiile pot primi un numar de parametri si intoarce (.mono[return]) un rezultat.
+
 ```javascript
-    m => m + 3;
-    var sum = (m1, m2) => {
-    return m1 + m2;
-    };
-    sum(2, 3); // will be 5
-    var a = [1, 2, 3, 4, 5];
-    a.forEach(v => console.log(v + 1)); // will log: 2 3 4 5 6
+function inmultire( a, b ) {
+	var rezultat = a * b;
+	return rezultat;
+}
+
+inmultire( 3, 4 ); // va intoarce valoarea inmultiirii celor doi parametri: 12
+
+var a = 5;
+
+inmultire( a, 5 ); // 25
 ```
-Binded this:
+---
+
+Functiile pot fi asociate unei variabile. In cazul asta, nu mai e necesar sa ii dam functiei un nume.
+Funtiile nu trebuie neaparat sa intoarca un rezultat, in cazul asta doar afiseaza la consola.
+
 ```javascript
-    var sum2 = function(a, b) {
-        this.a = a;
-        this.b = b;
-
-    	var dd = (v => console.log(this.a + this.b));
-        dd();
-    }
-
-    sum2(3, 7); //  will log 10
+var afiseaza = function( nume ) {
+	if ( nume ) {
+		console.log( 'Numele meu este: ' + nume + '.' );
+	} else if (nume.length > 3) {
+		console.log( 'Numele meu este: ' + nume + ' si are mai mult de trei litere.' );
+	} else {
+		console.log( 'Nu am nume' );
+	}
+};
 ```
+
+Ce va afisa fiecare apel al functiei?
+
+```javascript
+afiseaza( 'Gigi' );
+
+afiseaza( );
+
+afiseaza( '' );
+```
+
+---
+
+### Variabile in functii
+
+```javascript
+var a = 3;
+var functie = function() {
+	var b = 2;
+
+	a = a + b;
+
+	console.log( a );
+	console.log( b );
+};
+```
+
+Ce va afisa console.log() dupa fiecare apel al funtiei?
+
+```javascript
+functie();
+
+console.log( a );
+console.log( b );
+
+functie();
+
+console.log( a );
+console.log( b );
+```
+
+
+
