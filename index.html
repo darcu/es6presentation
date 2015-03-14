@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Curs : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Curs</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/darcu/es6presentation">View on GitHub</a>
+
+          <h1 id="project_title">Curs</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/darcu/es6presentation/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/darcu/es6presentation/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>class: center, middle</p>
+
+<h1>
+<a id="functii" class="anchor" href="#functii" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functii</h1>
+
+<hr>
+
+<h3>
+<a id="functii-1" class="anchor" href="#functii-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functii</h3>
+
+<p>Functiile permit refolosirea unei functionalitati sau bucati de cod.
+Functiile pot primi un numar de parametri si intoarce (.mono[return]) un rezultat.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-st">function</span> <span class="pl-en">inmultire</span>( <span class="pl-vpf">a</span>, <span class="pl-vpf">b</span> ) {
+    <span class="pl-s">var</span> rezultat <span class="pl-k">=</span> a <span class="pl-k">*</span> b;
+    <span class="pl-k">return</span> rezultat;
+}
+
+inmultire( <span class="pl-c1">3</span>, <span class="pl-c1">4</span> ); <span class="pl-c">// va intoarce valoarea inmultiirii celor doi parametri: 12</span>
+
+<span class="pl-s">var</span> a <span class="pl-k">=</span> <span class="pl-c1">5</span>;
+
+inmultire( a, <span class="pl-c1">5</span> ); <span class="pl-c">// 25</span></pre></div>
+
+<hr>
+
+<p>Functiile pot fi asociate unei variabile. In cazul asta, nu mai e necesar sa ii dam functiei un nume.
+Funtiile nu trebuie neaparat sa intoarca un rezultat, in cazul asta doar afiseaza la consola.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> <span class="pl-en">afiseaza</span> <span class="pl-k">=</span> <span class="pl-st">function</span>( <span class="pl-vpf">nume</span> ) {
+    <span class="pl-k">if</span> ( nume ) {
+        <span class="pl-en">console</span><span class="pl-s3">.log</span>( <span class="pl-s1"><span class="pl-pds">'</span>Numele meu este: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> nume <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">'</span>.<span class="pl-pds">'</span></span> );
+    } <span class="pl-k">else</span> <span class="pl-k">if</span> (nume.<span class="pl-sc">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">3</span>) {
+        <span class="pl-en">console</span><span class="pl-s3">.log</span>( <span class="pl-s1"><span class="pl-pds">'</span>Numele meu este: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> nume <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">'</span> si are mai mult de trei litere.<span class="pl-pds">'</span></span> );
+    } <span class="pl-k">else</span> {
+        <span class="pl-en">console</span><span class="pl-s3">.log</span>( <span class="pl-s1"><span class="pl-pds">'</span>Nu am nume<span class="pl-pds">'</span></span> );
+    }
+};</pre></div>
+
+<p>Ce va afisa fiecare apel al functiei?</p>
+
+<div class="highlight highlight-javascript"><pre>afiseaza( <span class="pl-s1"><span class="pl-pds">'</span>Gigi<span class="pl-pds">'</span></span> );
+
+afiseaza( );
+
+afiseaza( <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> );</pre></div>
+
+<hr>
+
+<h3>
+<a id="variabile-in-functii" class="anchor" href="#variabile-in-functii" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variabile in functii</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> a <span class="pl-k">=</span> <span class="pl-c1">3</span>;
+<span class="pl-s">var</span> <span class="pl-en">functie</span> <span class="pl-k">=</span> <span class="pl-st">function</span>() {
+    <span class="pl-s">var</span> b <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+
+    a <span class="pl-k">=</span> a <span class="pl-k">+</span> b;
+
+    <span class="pl-en">console</span><span class="pl-s3">.log</span>( a );
+    <span class="pl-en">console</span><span class="pl-s3">.log</span>( b );
+};</pre></div>
+
+<p>Ce va afisa console.log() dupa fiecare apel al funtiei?</p>
+
+<div class="highlight highlight-javascript"><pre>functie();
+
+<span class="pl-en">console</span><span class="pl-s3">.log</span>( a );
+<span class="pl-en">console</span><span class="pl-s3">.log</span>( b );
+
+functie();
+
+<span class="pl-en">console</span><span class="pl-s3">.log</span>( a );
+<span class="pl-en">console</span><span class="pl-s3">.log</span>( b );</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Curs maintained by <a href="https://github.com/darcu">darcu</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
